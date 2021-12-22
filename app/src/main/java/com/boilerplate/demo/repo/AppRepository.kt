@@ -2,7 +2,6 @@ package com.boilerplate.demo.repo
 
 import com.boilerplate.demo.base.auth.network.networkBoundResource
 import com.boilerplate.demo.base.auth.service.Resource
-import com.boilerplate.demo.base.auth.we.WeFlow
 import com.boilerplate.demo.base.ui.BaseRepo
 import com.boilerplate.demo.model.ItemEntity
 import com.boilerplate.demo.service.ApiServices
@@ -15,7 +14,7 @@ open class AppRepository @Inject constructor(): BaseRepo() {
     @Inject
     lateinit var apiServices: ApiServices
 
-    fun getItems(): WeFlow<Resource<List<ItemEntity>>> {
+    fun getItems(): Flow<Resource<List<ItemEntity>>> {
         return networkBoundResource(
             fetchFromRemote = {
                 apiServices.getItems()
